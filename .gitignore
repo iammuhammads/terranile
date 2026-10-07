@@ -4,3 +4,10 @@ node_modules/
 *.log
 
 .vercel
+
+.next/
+dist/
+generated/
+*.tsbuildinfo
+.env*
+!.env.example

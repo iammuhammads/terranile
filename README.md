@@ -1,49 +1,39 @@
-# Terranile Digital Infrastructure Ltd.
+# Terranile
 
-A lightweight, statically generated corporate site. No runtime dependencies or database are required.
+Official Terranile corporate website, running on Next.js App Router and TypeScript.
+
+Production: https://terranile.vercel.app
+
+Custom domain: https://terranile.com (Hostinger DNS validation pending).
 
 ## Develop
 
-Run `npm run build`, then `npm run dev`. Open http://127.0.0.1:5173.
+Use Node 24. Run `npm ci`, then `npm run dev`. Open http://127.0.0.1:5174.
 
-Run `npm run check` to verify page metadata, local links, assets and JavaScript syntax.
+`npm run build` prepares the marketing content and builds Next.js. `npm run start` serves the production build. `npm run check` checks content, local links, assets and TypeScript. With a production server running, `npm run test:routes` checks all public routes, redirects, HTTP 404, the health API, sitemap and video range responses. Set `TEST_ORIGIN` to test a deployed site.
 
-## Edit
+## Structure
 
-- `scripts/data.mjs`: structured projects, capabilities, statuses, fields and perspectives.
-- `scripts/build.mjs`: shared page layouts and navigation.
-- `scripts/home-v3.mjs`: six hero panels and the editorial homepage.
-- `scripts/helios.mjs`: biological imagery, laboratory clips and media credits.
-- `dist/site.css`: shared design tokens, typography, responsive layouts and motion.
-- `dist/visuals-v2.css`: titanium, teal and copper visual direction and cinematic layout.
-- `dist/visuals-v3.css`: centered panel rail, progress controls and editorial imagery.
-- `dist/panel-deck.js`: looped panel navigation, drag, horizontal wheel and accessible pause behavior.
-- `dist/site.js`: navigation, viewport reveals and conceptual visualizations.
+- `app/`: native Next.js pages, metadata routes, 404 and API route handlers.
+- `components/site-shell.tsx`: React navigation, shared footer and interaction loading.
+- `scripts/`: approved marketing templates and content generation.
+- `scripts/data.mjs`: project facts, statuses and external destinations.
+- `scripts/ecosystem.mjs`: one dominant product preview with logo selectors.
+- `public/`: local media, CSS and existing browser interactions.
+- `generated/`: ignored build-time marketing content consumed only by server components.
 
-Add future initiatives to the projects array with a unique slug and path. The generator creates each detail page from the same layout. Add the initiative to the appropriate index and homepage selection as needed.
+This migration retains the approved marketing templates as trusted build-time HTML. New account pages and application features should use native React components. Never inject user submissions or API responses into the marketing HTML bridge. Current links load whole documents so the existing interaction scripts initialize once per page.
 
-Company facts come from the supplied brief. The three perspective pieces are editorial summaries written from that brief; they are not dated news announcements or published scientific papers. Leadership profiles and vacancies await verified company information.
+## Product screenshots
 
-## Photography
+What we build shows actual AVAN, AvanBnB and OPEX homepage captures. Helios uses labelled conceptual imagery until a public interface is available. The captures are local WebP assets, not live embeds. AVAN currently shows its first-visit welcome tour. See `ASSETS.md` for sources and `scripts/capture-products.py` for refresh tooling.
 
-Architecture: Joss Broward, https://unsplash.com/photos/a-black-and-white-photo-of-a-building-qJKUR2PLxMQ
+## Platform plans
 
-Hospitality: Franco Debartolo, https://unsplash.com/photos/a-neutral-toned-living-room-with-modern-decor-KJVfcwpHI1w
+APIs, user accounts, signups and authenticated product experiences are planned. `/api/health/` verifies the server runtime; no account system or database has been implemented. See `ARCHITECTURE.md` before adding account features. Backtesting figures await the owner's data.
 
-License: https://unsplash.com/license. Photographs illustrate architecture and hospitality, not Terranile-owned developments. Assets are downloaded locally for reliable delivery.
+## Deployment
 
-Scientific and quantitative graphics are conceptual, not actual measurements, research findings or market data.
+Vercel is connected to https://github.com/iammuhammads/terranile. The included `vercel.json` selects Next.js. Canonical URLs default to https://terranile.com; set the server build variable `SITE_URL` to override this. See `HOSTING.md` and `HOSTINGER-VERCEL-DNS.md`.
 
-Generated image prompts and video sources are recorded in `ASSETS.md`. The six hero panels include distinct OPEX imagery. The carousel advances every ten seconds, supports mouse/touch drag, horizontal wheel navigation and keyboard selection. It pauses on hover, focus, offscreen, document hiding or explicit pause, and disables automatic movement for reduced motion. Company, Research and Careers pages include illustrative people scenes without visible faces. Laboratory clips load on intersection or explicit playback; only one selected clip plays.
-
-AVAN's public overview route is `/avan/`; `/companies/avan/` is preserved as an alias. The current AVAN product link is `https://dist-peach-ten-62.vercel.app/`, recorded in `scripts/data.mjs`, alongside the future `https://terranile.com/avan` destination. AvanBnB opens `https://avanbnb.com/`. Changing AVAN's eventual hosting is a separate deployment task; the temporary platform remains the active external link.
-
-## Hosting
-
-Generated pages live in `dist/` and can be served by any static web host. This GitHub release includes Vercel configuration and Hostinger static-hosting instructions in `HOSTING.md`. Production metadata defaults to https://terranile.com; set SITE_URL to override it for another deployment.
-
-## Product ecosystem
-
-The homepage uses one large selected-product visual above a four-logo selector. Names sit beneath logos. It supports hover, click, keyboard selection and mobile swipe, with reduced-motion handling. Previews currently use labelled illustrative images; approved actual screenshots can be added through `scripts/ecosystem.mjs`.
-
-For GitHub deployment, domain configuration and screenshot updates, see [HOSTING.md](HOSTING.md).
+Photography and films are illustrative unless labelled as actual product captures. No Terranile-owned facilities, completed developments or validated research results are represented. Asset sources and generated-image prompts are documented in `ASSETS.md`.

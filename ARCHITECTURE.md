@@ -4,11 +4,11 @@ The owner plans to expand Terranile beyond the corporate website into APIs, user
 
 ## Current release
 
-The current website is a static corporate site deployed on Vercel. It does not provide authentication, user records or runtime APIs. Deploying it to Vercel does not itself implement these capabilities.
+The corporate site now runs on Next.js App Router with TypeScript on Vercel. Marketing pages are pre-rendered. Native routing, React navigation/footer, metadata routes, HTTP redirects, a real 404 and a dynamic `/api/health/` route are implemented. Authentication, user records and product APIs are not yet implemented.
 
 ## Recommended next step
 
-Migrate the existing design and routes to Next.js App Router with TypeScript before implementing signup, login or user dashboards. Preserve the public pages, media, project destinations and SEO metadata during migration. Keep public content pre-rendered where appropriate, and add server-side route handlers for application endpoints.
+The framework migration preserves the design, content, media, product destinations and public routes. Existing marketing templates currently enter server components as trusted, build-time HTML. Convert sections to native React components when modifying their application behavior; never inject user or API data into the HTML bridge. New signup, login and dashboard pages should use native React components, with server-side route handlers for application endpoints.
 
 Choose an established authentication provider and a persistent database when the first account flow is specified. Authentication must include server-side authorization for protected data and actions. Do not build a custom password/session system solely because the framework supports APIs.
 
@@ -24,6 +24,6 @@ Keep long-running scientific computations, backtesting and background jobs in su
 - User roles and organization membership.
 - API consumers, access rules and background-job requirements.
 
-Next.js migration and account implementation are recommendations for the next phase; they have not been performed in this release.
+The Next.js foundation is implemented. Account flows, persistent storage and shared-product sign-in remain the next phase.
 
 References: https://nextjs.org/docs/app/getting-started/route-handlers and https://nextjs.org/docs/app/guides/authentication

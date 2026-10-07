@@ -59,3 +59,9 @@ Pexels License: https://www.pexels.com/license/ . Unsplash License: https://unsp
 
 ## Lagos capital and roots film
 `lagos-capital.mp4` and its frame poster show real Lagos skyline, lagoon and bridges. Source: Vitalis Nwenyi, https://www.pexels.com/video/aerial-view-of-lagos-cityscape-over-lagoon-29103989/ . Pexels License: https://www.pexels.com/license/ . Muted compressed H.264 clip; playback starts on intersection, with pause controls and reduced-motion fallback. This is stock city footage, not company-owned property.
+
+## Actual product homepage captures
+
+Captured on 7 October 2026 through the WordPress mShots screenshot service: AVAN at https://dist-peach-ten-62.vercel.app/, AvanBnB at https://www.avanbnb.com/, and OPEX Intelli at https://opex-intelli-frontend-iegh.vercel.app/. Locally optimized WebP files power the What we build section. These show the actual public interfaces, including AVAN?s first-visit welcome tour. Helios remains a labelled conceptual visual. These snapshots are not live embeds and do not substantiate any performance claims visible in product marketing.
+
+Run `python scripts/capture-products.py` (Pillow required) to request fresh captures. Review the images before publishing; the script rejects the service?s loading placeholder but cannot determine whether a full-size page is an authentication or error screen.
