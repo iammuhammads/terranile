@@ -39,7 +39,7 @@ for(const media of helios.matchAll(/(?:poster|data-film-poster|data-film-src)="(
 for(const image of ['architecture.jpg','hospitality.jpg']){const file=path.join(root,'assets',image);if(fs.existsSync(file)){const data=fs.readFileSync(file);if(data.length<1000||data[0]!==0xff||data[1]!==0xd8)errors.push(`Invalid JPEG ${image}`)}}
 if(home.includes('data-ecosystem-panel')||home.includes('What we build')||home.includes('/ecosystem.js'))errors.push('Removed product showcase must not appear on homepage');
 if((home.match(/class="ecosystem-selector"/g)||[]).length!==4)errors.push('Expected four linked initiative logos');
-if(!contact.includes('abuja-skyline.jpg'))errors.push('Missing real Abuja contact photograph');
+if(!contact.includes('abuja-fog-16237804.jpg'))errors.push('Missing real Abuja contact photograph');
 for(const route of ['news','announcements'])if(!fs.readFileSync(`dist/${route}/index.html`,'utf8').includes('newsroom-nav'))errors.push(`Missing newsroom route ${route}`);
 if(!home.includes('Built in partnership.')||!fs.readFileSync('dist/projects/real-assets/index.html','utf8').includes('Developer Partnerships'))errors.push('Missing partnership positioning');
 if(!fs.readFileSync('dist/projects/opex-intelli/index.html','utf8').includes('https://opex-intelli-frontend-iegh.vercel.app/'))errors.push('Missing OPEX platform link');

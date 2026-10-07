@@ -10,7 +10,7 @@ for(const theme of ['light','dark']){
   assert.ok(homepage.includes(`(prefers-color-scheme: ${theme})`));
   const response=await fetch(origin+`/assets/favicon-${theme}.png`);assert.equal(response.status,200);assert.ok(response.headers.get('content-type').includes('image/png'));
 }
-const contact=await(await fetch(origin+'/contact/')).text();assert.ok(contact.includes('abuja-skyline.jpg'),'Real Abuja photograph');
+const contact=await(await fetch(origin+'/contact/')).text();assert.ok(contact.includes('abuja-fog-16237804.jpg'),'Real Abuja photograph');
 for(const [route,page] of Object.entries(pages)){
   const response=await fetch(origin+route);
   assert.equal(response.status,200,route);
