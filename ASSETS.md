@@ -67,7 +67,7 @@ Captured on 7 October 2026 through the WordPress mShots screenshot service: AVAN
 Run `python scripts/capture-products.py` (Pillow required) to request fresh captures. Review the images before publishing; the script rejects the service?s loading placeholder but cannot determine whether a full-size page is an authentication or error screen.
 
 ## Abuja contact photograph
-`abuja-skyline.jpg`: King Buwa, real Abuja hilltop city panorama. Source: https://unsplash.com/photos/high-angle-photo-of-cityscape-bQAJj93bOn0 . Unsplash License: https://unsplash.com/license . This photograph does not depict a Terranile-owned asset.
+`abuja-fog-16237804.jpg`: owner-selected Abuja skyline photograph by Stuffedbox NG. Source: https://www.pexels.com/photo/aerial-view-of-abuja-in-fog-nigeria-16237804/ . Pexels License: https://www.pexels.com/license/ . Resized to 1800 x 1080 for web delivery, preserving the supplied composition. This photograph does not depict a Terranile-owned asset. The previous King Buwa image is retained as an unused asset.
 
 ## Adaptive favicon
 Transparent black and white Terranile mountain/river marks prepared with the built-in image-generation tool from owner-supplied artwork; resized to 64px PNG. `favicon-light.png` uses black for light browser chrome; `favicon-dark.png` uses white for dark browser chrome. Backgrounds and stray artifacts removed. Editing prompt: preserve supplied mountain/river geometry and negative space; clean flat silhouette on true transparency, no text or shadows.
