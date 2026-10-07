@@ -10,7 +10,7 @@ The Vercel project is `terranile` under `muhammads-projects-c70ef934`. GitHub is
 
 ## Domain
 
-`terranile.com` is attached to the Vercel project. DNS remains with Hostinger; the owner will make the DNS change. Follow `HOSTINGER-VERCEL-DNS.md`, preserving email records. Once DNS and HTTPS are confirmed, the production domain will serve the same site. Canonical metadata and sitemap default to https://terranile.com.
+`terranile.com` is attached to the Vercel project. DNS remains with Hostinger and is managed by the owner. HTTPS and the updated Next.js site were verified at the custom domain on 7 October 2026. No further root-domain DNS change is currently needed. Follow `HOSTINGER-VERCEL-DNS.md` only if reconfiguring it, preserving email records. Canonical metadata and sitemap default to https://terranile.com.
 
 ## Secrets and accounts
 

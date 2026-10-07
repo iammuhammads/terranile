@@ -4,7 +4,7 @@ Official Terranile corporate website, running on Next.js App Router and TypeScri
 
 Production: https://terranile.vercel.app
 
-Custom domain: https://terranile.com (Hostinger DNS validation pending).
+Custom domain: https://terranile.com (DNS and HTTPS verified on 7 October 2026).
 
 ## Develop
 
