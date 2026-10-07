@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://terranile.iammuhammad.chatgpt.site/sitemap.xml
+Sitemap: https://terranile.com/sitemap.xml

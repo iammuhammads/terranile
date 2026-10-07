@@ -40,7 +40,7 @@ AVAN's public overview route is `/avan/`; `/companies/avan/` is preserved as an 
 
 ## Hosting
 
-The Sites project identity is stored in `.openai/hosting.json`. Generated pages live in `dist/` and can also be served by any static web host. The deployed Sites version is private for review until the owner changes sharing.
+Generated pages live in `dist/` and can be served by any static web host. This GitHub release includes Vercel configuration and Hostinger static-hosting instructions in `HOSTING.md`. Production metadata defaults to https://terranile.com; set SITE_URL to override it for another deployment.
 
 ## Product ecosystem
 
