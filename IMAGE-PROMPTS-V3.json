@@ -1,0 +1,21 @@
+{
+  "mode": "built-in image_gen",
+  "inspection": "All three inspected visually. No visible facial features or faces in reflections. Laboratory researchers have rear-facing heads; ears and narrow rear-side head edges are visible.",
+  "assets": [
+    {
+      "name": "opex-intelli-v3",
+      "path": "C:/Users/muham/Desktop/te/generated-assets/opex-intelli-v3.png",
+      "prompt": "Use case: photorealistic-natural\nAsset type: landscape website editorial photograph, 16:9 composition\nPrimary request: High-end editorial photograph-style quantitative research workspace.\nScene/backdrop: Dark graphite desk with rigorous printed mathematical plots and financial time-series charts. A large technical monitor is out of focus with understated data graphics and no legible invented text. Smoked-glass light, muted midnight blue, and a copper desk lamp.\nSubject: Only the hand of an analyst writing notes appears at the edge of the composition; no head or face is in frame.\nStyle/medium: Precise, realistic, quiet computational financial research, premium photographic materials and lighting.\nConstraints: No visible faces, no logos, no watermark, no legible invented text. Avoid crypto imagery, trading-floor clichés, flashy candlesticks, or neon spectacle."
+    },
+    {
+      "name": "research-people-v3",
+      "path": "C:/Users/muham/Desktop/te/generated-assets/research-people-v3.png",
+      "prompt": "Use case: photorealistic-natural\nAsset type: landscape website editorial photograph, 16:9 composition\nPrimary request: Premium editorial rear view of two biomedical researchers in a modern bright laboratory.\nSubject: Two researchers in white coats, their backs turned fully to the camera, naturally working at a microscope and laboratory instruments. Both heads point away from the camera; faces are entirely invisible, including profiles and reflections.\nScene/backdrop: Modern bright laboratory, realistic fine materials, soft teal glass and warm natural daylight.\nStyle/medium: Premium natural editorial photography.\nConstraints: No visible faces anywhere, including reflections; no holograms; no logos, text, or watermark. These are fictional illustrative people and a fictional laboratory, not Terranile staff or a Terranile facility."
+    },
+    {
+      "name": "infrastructure-people-v3",
+      "path": "C:/Users/muham/Desktop/te/generated-assets/infrastructure-people-v3.png",
+      "prompt": "Use case: photorealistic-natural\nAsset type: landscape website architectural editorial photograph, 16:9 composition\nPrimary request: Premium architectural editorial image of two African engineers viewed strictly from behind on an unfinished concrete development site.\nSubject: Two African engineers wearing hardhats, backs and rear of heads toward the camera. Faces are entirely hidden, including profiles and reflections. One holds a rolled plan.\nScene/backdrop: Unfinished concrete development, terracotta earth, deep green distant planting, titanium-toned concrete structure.\nStyle/medium: Composed cinematic editorial photography in natural sunlight, realistic materials.\nConstraints: No visible faces anywhere, no logos, text, or watermark. Fictional illustrative scene, not an actual Terranile project."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+import assert from 'node:assert/strict';
+const origin='http://127.0.0.1:5173';
+for(const [route,expected] of [['/','data-panel-deck'],['/avan/','https://dist-peach-ten-62.vercel.app/'],['/companies/avanbnb/','https://avanbnb.com/'],['/research/helios/','data-film-select'],['/company/','construction-owner.jpg'],['/research/','research-people-v3.webp'],['/careers/','research-people-v3.webp'],['/projects/opex-intelli/','https://opex-intelli-frontend-iegh.vercel.app/']]){const result=await fetch(origin+route);assert.equal(result.status,200,route);assert.ok((await result.text()).includes(expected),route)}
+for(const [route,expected] of [['/nigerian-roots/','Nigerian roots.'],['/','lagos-capital.mp4']]){const response=await fetch(origin+route);assert.equal(response.status,200);assert.ok((await response.text()).includes(expected))}
+for(const asset of ['/assets/helios-lab.mp4','/assets/helios-sample.mp4','/assets/nigeria-independence.mp4','/assets/lagos-capital.mp4']){const result=await fetch(origin+asset,{headers:{Range:'bytes=0-31'}});assert.equal(result.status,206);assert.equal(result.headers.get('content-type'),'video/mp4');assert.equal((await result.arrayBuffer()).byteLength,32)}
+assert.equal((await fetch(origin+'/page-that-does-not-exist/')).status,404);
+console.log('Local routes, Nigerian roots, capital city film, supplied product links, all video byte ranges, video MIME types and 404 verified.');
