@@ -28,7 +28,7 @@ for(const asset of ['lagos-capital.mp4','lagos-capital-poster.jpg'])if(!fs.exist
 const contact=fs.readFileSync('dist/contact/index.html','utf8');
 if((contact.match(/data-enquiry-role=/g)||[]).length!==8||!contact.includes('data-copy-email'))errors.push('Missing Contact enquiry choices or copy-email fallback');
 for(const asset of ['nigeria-independence.mp4','nigeria-independence-poster.jpg'])if(!fs.existsSync(path.join(root,'assets',asset)))errors.push(`Missing Nigeria asset ${asset}`);
-if((home.match(/<section /g)||[]).length!==5)errors.push('Homepage should have five focused sections');
+if((home.match(/<section /g)||[]).length!==4)errors.push('Homepage should have four focused sections');
 for(const route of ['company','research','careers'])if(!fs.readFileSync(`dist/${route}/index.html`,'utf8').includes('page-photograph'))errors.push(`Missing editorial image on ${route}`);
 if(!fs.readFileSync('dist/projects/opex-intelli/index.html','utf8').includes('opex-intelli-v3.webp'))errors.push('Missing distinct OPEX visual');
 if(!fs.readFileSync('dist/avan/index.html','utf8').includes('https://dist-peach-ten-62.vercel.app/'))errors.push('Missing current AVAN destination');
@@ -37,8 +37,11 @@ const helios=fs.readFileSync('dist/research/helios/index.html','utf8');
 if((helios.match(/data-film-select/g)||[]).length!==2||!helios.includes('preload="none"'))errors.push('Missing deferred Helios film selection');
 for(const media of helios.matchAll(/(?:poster|data-film-poster|data-film-src)="([^"]+)"/g))if(!fs.existsSync(path.join(root,media[1])))errors.push(`Missing Helios media ${media[1]}`);
 for(const image of ['architecture.jpg','hospitality.jpg']){const file=path.join(root,'assets',image);if(fs.existsSync(file)){const data=fs.readFileSync(file);if(data.length<1000||data[0]!==0xff||data[1]!==0xd8)errors.push(`Invalid JPEG ${image}`)}}
-if((home.match(/data-ecosystem-panel(?: |>|\n)/g)||[]).length!==4||(home.match(/data-ecosystem-select=/g)||[]).length!==4)errors.push('Expected four ecosystem previews and selectors');
-if(home.indexOf('What we build')>home.indexOf('class="portfolio-logos"'))errors.push('Ecosystem must sit above logos');
+if(home.includes('data-ecosystem-panel')||home.includes('What we build')||home.includes('/ecosystem.js'))errors.push('Removed product showcase must not appear on homepage');
+if((home.match(/class="ecosystem-selector"/g)||[]).length!==4)errors.push('Expected four linked initiative logos');
+if(!contact.includes('abuja-skyline.jpg'))errors.push('Missing real Abuja contact photograph');
+for(const route of ['news','announcements'])if(!fs.readFileSync(`dist/${route}/index.html`,'utf8').includes('newsroom-nav'))errors.push(`Missing newsroom route ${route}`);
+if(!home.includes('Built in partnership.')||!fs.readFileSync('dist/projects/real-assets/index.html','utf8').includes('Developer Partnerships'))errors.push('Missing partnership positioning');
 if(!fs.readFileSync('dist/projects/opex-intelli/index.html','utf8').includes('https://opex-intelli-frontend-iegh.vercel.app/'))errors.push('Missing OPEX platform link');
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}console.log(`Verified ${files.length} pages: local links, assets, metadata, headings, image dimensions, contact email and JavaScript syntax.`);
 

@@ -18,7 +18,7 @@ Use Node 24. Run `npm ci`, then `npm run dev`. Open http://127.0.0.1:5174.
 - `components/site-shell.tsx`: React navigation, shared footer and interaction loading.
 - `scripts/`: approved marketing templates and content generation.
 - `scripts/data.mjs`: project facts, statuses and external destinations.
-- `scripts/ecosystem.mjs`: one dominant product preview with logo selectors.
+- `scripts/ecosystem.mjs`: linked initiative logos with names underneath.
 - `public/`: local media, CSS and existing browser interactions.
 - `generated/`: ignored build-time marketing content consumed only by server components.
 
@@ -26,7 +26,7 @@ This migration retains the approved marketing templates as trusted build-time HT
 
 ## Product screenshots
 
-What we build shows actual AVAN, AvanBnB and OPEX homepage captures. Helios uses labelled conceptual imagery until a public interface is available. The captures are local WebP assets, not live embeds. AVAN currently shows its first-visit welcome tour. See `ASSETS.md` for sources and `scripts/capture-products.py` for refresh tooling.
+Archived AVAN, AvanBnB and OPEX homepage captures are retained as local assets but are no longer displayed on the homepage. See `ASSETS.md` for sources and `scripts/capture-products.py` for refresh tooling.
 
 ## Platform plans
 
@@ -37,3 +37,5 @@ APIs, user accounts, signups and authenticated product experiences are planned. 
 Vercel is connected to https://github.com/iammuhammads/terranile. The included `vercel.json` selects Next.js. Canonical URLs default to https://terranile.com; set the server build variable `SITE_URL` to override this. See `HOSTING.md` and `HOSTINGER-VERCEL-DNS.md`.
 
 Photography and films are illustrative unless labelled as actual product captures. No Terranile-owned facilities, completed developments or validated research results are represented. Asset sources and generated-image prompts are documented in `ASSETS.md`.
+
+The homepage now retains the four linked initiative logos with names below, without the What we build preview model. Newsroom routes are `/news/`, `/perspectives/` and `/announcements/`. Add approved updates in `scripts/news.mjs`; only records marked `published` appear publicly. No unannounced partnerships or releases are fabricated. Real estate is presented through partner-led projects and AVAN infrastructure.

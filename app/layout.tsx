@@ -2,7 +2,10 @@ import type {Metadata,Viewport} from 'next';
 import type {ReactNode} from 'react';
 import {siteOrigin} from '@/lib/marketing';
 
-export const metadata:Metadata={metadataBase:new URL(siteOrigin),icons:{icon:'/assets/terranile-logo-clean.png'}};
+export const metadata:Metadata={metadataBase:new URL(siteOrigin),icons:{icon:[
+  {url:'/assets/favicon-light.png',type:'image/png',sizes:'64x64',media:'(prefers-color-scheme: light)'},
+  {url:'/assets/favicon-dark.png',type:'image/png',sizes:'64x64',media:'(prefers-color-scheme: dark)'}
+]}};
 export const viewport:Viewport={width:'device-width',initialScale:1,themeColor:'#f2f2f2'};
 export default function RootLayout({children}:{children:ReactNode}){
   return <html lang="en"><head>

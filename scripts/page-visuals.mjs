@@ -1,6 +1,6 @@
 const scenes={
   '/capital/':{image:'capital-nairobi',extension:'jpg',alt:'Nairobi skyline with commercial buildings and elevated roads',caption:'Nairobi, Kenya / Real photography of an African city'},
-  '/contact/':{image:'lagos-city',extension:'jpg',alt:'High-rise buildings in Lagos Island at sunset',caption:'Lagos, Nigeria / Photograph by Emmanuel Ikwuegbu'},
+  '/contact/':{image:'abuja-skyline',extension:'jpg',alt:'A real panoramic view across Abuja from a hilltop',caption:'Abuja, Nigeria / Photograph by King Buwa'},
   '/perspectives/':{image:'capital-servers',extension:'jpg',alt:'Server racks and equipment in a real data centre',caption:'Digital infrastructure / Stock photography by Brett Sayles'},
   '/company/':{image:'construction-owner',extension:'jpg',alt:'Two construction professionals reviewing plans at a building site',caption:'Illustrative fieldwork study / Technology and the physical world'},
   '/research/':{image:'research-people-v3',alt:'Two researchers working in a bright laboratory, viewed from behind with faces hidden',caption:'Illustrative laboratory study / Observation and research'},

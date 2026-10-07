@@ -4,12 +4,13 @@ import fs from 'node:fs';
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5174';
 const pages=JSON.parse(fs.readFileSync('generated/pages.json','utf8'));
 const homepage=await (await fetch(origin+'/')).text();
-for(const slug of ['avan','avanbnb','opex']){
-  assert.ok(homepage.includes(`/assets/${slug}-homepage.webp`),`${slug}: actual homepage preview`);
-  const image=await fetch(origin+`/assets/${slug}-homepage.webp`);
-  assert.equal(image.status,200);assert.ok(image.headers.get('content-type').includes('image/webp'));
-  assert.ok((await image.arrayBuffer()).byteLength>10000,`${slug}: valid capture instead of loading placeholder`);
+assert.ok(!homepage.includes('What we build')&&!homepage.includes('data-ecosystem-panel')&&!homepage.includes('/ecosystem.js'),'Removed product showcase');
+for(const logo of ['avan','avanbnb','helios','opex'])assert.ok(homepage.includes(`/assets/${logo}-logo-clean.png`),`${logo}: retained logo`);
+for(const theme of ['light','dark']){
+  assert.ok(homepage.includes(`(prefers-color-scheme: ${theme})`));
+  const response=await fetch(origin+`/assets/favicon-${theme}.png`);assert.equal(response.status,200);assert.ok(response.headers.get('content-type').includes('image/png'));
 }
+const contact=await(await fetch(origin+'/contact/')).text();assert.ok(contact.includes('abuja-skyline.jpg'),'Real Abuja photograph');
 for(const [route,page] of Object.entries(pages)){
   const response=await fetch(origin+route);
   assert.equal(response.status,200,route);

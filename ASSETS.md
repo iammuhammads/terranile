@@ -62,6 +62,12 @@ Pexels License: https://www.pexels.com/license/ . Unsplash License: https://unsp
 
 ## Actual product homepage captures
 
-Captured on 7 October 2026 through the WordPress mShots screenshot service: AVAN at https://dist-peach-ten-62.vercel.app/, AvanBnB at https://www.avanbnb.com/, and OPEX Intelli at https://opex-intelli-frontend-iegh.vercel.app/. Locally optimized WebP files power the What we build section. These show the actual public interfaces, including AVAN?s first-visit welcome tour. Helios remains a labelled conceptual visual. These snapshots are not live embeds and do not substantiate any performance claims visible in product marketing.
+Captured on 7 October 2026 through the WordPress mShots screenshot service: AVAN at https://dist-peach-ten-62.vercel.app/, AvanBnB at https://www.avanbnb.com/, and OPEX Intelli at https://opex-intelli-frontend-iegh.vercel.app/. These archived WebP captures are no longer displayed on the homepage after removal of the What we build showcase. These show the actual public interfaces, including AVAN?s first-visit welcome tour. Helios remains a labelled conceptual visual. These snapshots are not live embeds and do not substantiate any performance claims visible in product marketing.
 
 Run `python scripts/capture-products.py` (Pillow required) to request fresh captures. Review the images before publishing; the script rejects the service?s loading placeholder but cannot determine whether a full-size page is an authentication or error screen.
+
+## Abuja contact photograph
+`abuja-skyline.jpg`: King Buwa, real Abuja hilltop city panorama. Source: https://unsplash.com/photos/high-angle-photo-of-cityscape-bQAJj93bOn0 . Unsplash License: https://unsplash.com/license . This photograph does not depict a Terranile-owned asset.
+
+## Adaptive favicon
+Transparent black and white Terranile mountain/river marks prepared with the built-in image-generation tool from owner-supplied artwork; resized to 64px PNG. `favicon-light.png` uses black for light browser chrome; `favicon-dark.png` uses white for dark browser chrome. Backgrounds and stray artifacts removed. Editing prompt: preserve supplied mountain/river geometry and negative space; clean flat silhouette on true transparency, no text or shadows.
