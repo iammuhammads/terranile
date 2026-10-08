@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 import {pages,routeFromSegments} from '@/lib/marketing';
+import {pageMetadata,pageStructuredData,serializeStructuredData} from '@/lib/seo';
 import {SiteShell} from '@/components/site-shell';
 
 type Props={params:Promise<{slug?:string[]}>};
@@ -11,12 +12,13 @@ export function generateStaticParams(){
 export async function generateMetadata({params}:Props):Promise<Metadata>{
   const route=routeFromSegments((await params).slug),page=pages[route];
   if(!page)return {title:'Page not found — Terranile',robots:{index:false,follow:false}};
-  return {title:page.title,description:page.description,alternates:{canonical:route},openGraph:{type:'website',title:page.title,description:page.description,url:route}};
+  return pageMetadata(route,page);
 }
 export default async function MarketingRoute({params}:Props){
   const route=routeFromSegments((await params).slug),page=pages[route];
   if(!page)notFound();
   return <SiteShell route={route} className={page.className}>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeStructuredData(pageStructuredData(route,page))}}/>
     {/* Repository-owned, build-time marketing HTML only. User content must use escaped React props. */}
     <div className="marketing-content" dangerouslySetInnerHTML={{__html:page.body}}/>
   </SiteShell>;

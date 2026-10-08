@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import http from 'node:http';
 
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5174';
 const pages=JSON.parse(fs.readFileSync('generated/pages.json','utf8'));
@@ -23,7 +24,26 @@ for(const [route,page] of Object.entries(pages)){
   const html=await response.text();
   assert.ok(html.includes(page.title.replaceAll('&','&amp;')),`Title: ${route}`);
   assert.ok(html.includes('id="main"'),`Main content: ${route}`);
-  assert.ok(html.includes('rel="canonical"'),`Canonical: ${route}`);
+  const canonical=html.match(/<link[^>]*rel="canonical"[^>]*href="([^"]+)"/);
+  assert.equal(canonical?.[1],`https://terranile.com${route}`,`Exact canonical: ${route}`);
+  assert.ok(!/<meta[^>]*name="robots"[^>]*content="[^"]*noindex/.test(html),`Indexable: ${route}`);
+  assert.ok(!response.headers.get('x-robots-tag')?.includes('noindex'),`Indexable header: ${route}`);
+  assert.ok(html.includes('property="og:image"')&&html.includes('content="summary_large_image"'),`Social image: ${route}`);
+  const schemaScripts=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  assert.equal(schemaScripts.length,1,`JSON-LD script: ${route}`);
+  const data=JSON.parse(schemaScripts[0][1]);
+  assert.equal(data['@context'],'https://schema.org');
+  if(route==='/'){
+    assert.ok(data['@graph'].some(node=>node['@type']==='Organization'&&node.url==='https://terranile.com/'));
+    assert.ok(data['@graph'].some(node=>node['@type']==='WebSite'));
+  }else{
+    const crumbs=data['@graph'].find(node=>node['@type']==='BreadcrumbList');
+    assert.equal(crumbs.itemListElement.at(-1).item,`https://terranile.com${route}`);
+    assert.ok(html.includes('aria-label="Breadcrumb"'),`Visible breadcrumbs: ${route}`);
+  }
+  if(route==='/research/opex-001/')assert.ok(data['@graph'].some(node=>node['@type']==='ScholarlyArticle'&&node.headline===page.title.replace(/ — Terranile$/,'')));
+  if(route.startsWith('/perspectives/')&&route!=='/perspectives/')assert.ok(data['@graph'].some(node=>node['@type']==='Article'));
+
   assert.ok(html.includes('/site.js'),`Interactions: ${route}`);
 }
 for(const [route,target] of [['/companies/','/projects/'],['/companies/avan/','/avan/']]){
@@ -37,7 +57,28 @@ assert.ok((await missing.text()).includes('A different direction.'));
 const health=await fetch(origin+'/api/health/');
 assert.equal(health.status,200);assert.deepEqual(await health.json(),{status:'ok',service:'terranile-web'});
 assert.equal(health.headers.get('cache-control'),'no-store');
-const sitemap=await fetch(origin+'/sitemap.xml');assert.equal(sitemap.status,200);assert.ok((await sitemap.text()).includes('https://terranile.com/nigerian-roots/'));
+assert.equal(health.headers.get('x-robots-tag'),'noindex');
+const sitemap=await fetch(origin+'/sitemap.xml');assert.equal(sitemap.status,200);
+const sitemapUrls=[...(await sitemap.text()).matchAll(/<loc>(.*?)<\/loc>/g)].map(match=>match[1]);
+assert.deepEqual(sitemapUrls.sort(),Object.keys(pages).map(route=>'https://terranile.com'+route).sort(),'Exact sitemap membership');
+const robots=await fetch(origin+'/robots.txt');assert.equal(robots.status,200);
+assert.match(await robots.text(),/Allow: \/[\s\S]*Sitemap: https:\/\/terranile\.com\/sitemap\.xml/);
+const tagged=await(await fetch(origin+'/research/opex-001/?utm_source=check')).text();
+assert.ok(tagged.includes('rel="canonical" href="https://terranile.com/research/opex-001/"'),'Query-free canonical');
+// Local production server allows exact Host-header verification without touching DNS.
+if(new URL(origin).hostname==='127.0.0.1'){
+  for(const host of ['www.terranile.com','terranile.vercel.app']){
+    for(const route of ['/','/research/opex-001/?utm_source=check','/robots.txt','/sitemap.xml']){
+      const redirect=await new Promise((resolve,reject)=>{
+        const request=http.get(origin+route,{headers:{Host:host}},response=>{response.resume();resolve(response);});
+        request.on('error',reject);
+      });
+      assert.equal(redirect.statusCode,308,`Host redirect: ${host}${route}`);
+      assert.equal(new URL(redirect.headers.location).href,'https://terranile.com'+route,`Host redirect path/query: ${host}${route}`);
+    }
+  }
+}
+
 for(const asset of ['nigeria-independence.mp4','lagos-capital.mp4','helios-lab.mp4','helios-sample.mp4']){
   const response=await fetch(origin+'/assets/'+asset,{headers:{Range:'bytes=0-31'}});
   assert.equal(response.status,206,asset);assert.equal((await response.arrayBuffer()).byteLength,32,asset);

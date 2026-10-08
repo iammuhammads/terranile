@@ -5,9 +5,12 @@ const config: NextConfig = {
   poweredByHeader: false,
   async redirects(){
     return [
+      ...['www.terranile.com','terranile.vercel.app'].flatMap(host=>[
+        {source:'/:path(.*\\.[^/]+)',has:[{type:'host' as const,value:host}],destination:'https://terranile.com/:path',permanent:true},
+        {source:'/:path*',has:[{type:'host' as const,value:host}],destination:'https://terranile.com/:path*/',permanent:true}
+      ]),
       {source:'/companies',destination:'/projects/',permanent:true},
-      {source:'/companies/avan',destination:'/avan/',permanent:true},
-      {source:'/404',destination:'/page-not-found/',permanent:false}
+      {source:'/companies/avan',destination:'/avan/',permanent:true}
     ];
   }
 };

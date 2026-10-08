@@ -8,7 +8,7 @@ import {heliosCinema} from './helios.mjs';
 import {capitalBody,partnershipEnquiries,capitalPhotography} from './capital.mjs';
 import {addPageVisual} from './page-visuals.mjs';
 import {updates,newsroomNav,updateList,newsroomTopics} from './news.mjs';
-const origin=(process.env.SITE_URL||'https://terranile.com').replace(/\/$/,'');
+const origin='https://terranile.com';
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const mark='<img class="brand-art" src="/assets/terranile-logo-clean.png" alt="" width="240" height="68" aria-hidden="true">';
 const brand=`<a class="brand" href="/" aria-label="Terranile home">${mark}</a>`;

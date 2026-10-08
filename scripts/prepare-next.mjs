@@ -4,6 +4,7 @@ import {execFileSync} from 'node:child_process';
 
 // Preserve the approved marketing templates during the framework migration.
 // Only these repository-owned templates may become HTML; never inject user/API data.
+fs.rmSync('dist',{recursive:true,force:true});
 fs.mkdirSync('dist',{recursive:true});
 for(const name of fs.readdirSync('public')){
   fs.cpSync(path.join('public',name),path.join('dist',name),{recursive:true});
