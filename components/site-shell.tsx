@@ -22,7 +22,7 @@ export function SiteShell({route,children,className=''}:{route:string;children:R
         </div>
       </div>
       <div className="footer-word" aria-hidden="true">terranile</div>
-      <div className="footer-bottom"><span>© {new Date().getFullYear()} Terranile Digital Infrastructure Ltd.</span><span>Originating in Nigeria. Built for global relevance.</span></div>
+      <div className="footer-bottom"><span>© 2025–{new Date().getFullYear()} Terranile Digital Infrastructure Ltd.</span><span>Originating in Nigeria. Built for global relevance.</span></div>
     </footer>
     <Script src="/site.js" strategy="afterInteractive"/>
     <Script src="/city-film.js" strategy="afterInteractive"/>

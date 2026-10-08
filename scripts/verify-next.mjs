@@ -11,6 +11,12 @@ for(const theme of ['light','dark']){
   const response=await fetch(origin+`/assets/favicon-${theme}.png`);assert.equal(response.status,200);assert.ok(response.headers.get('content-type').includes('image/png'));
 }
 const contact=await(await fetch(origin+'/contact/')).text();assert.ok(contact.includes('abuja-fog-16237804.jpg'),'Real Abuja photograph');
+const research=await(await fetch(origin+'/research/opex-001/')).text();
+for(const text of ['11.18','13.39','0.748','22.28','Historical simulated results','untouched holdout','not live investment performance'])assert.ok(research.includes(text),`Research qualification or result: ${text}`);
+for(const route of ['/','/research/','/projects/opex-intelli/'])assert.ok((await(await fetch(origin+route)).text()).includes('href="/research/opex-001/"'),`Research entry point: ${route}`);
+for(const name of ['risk-return','growth-drawdown','rolling-risk']){const response=await fetch(origin+`/assets/research/${name}.png`);assert.equal(response.status,200);assert.ok(response.headers.get('content-type').includes('image/png'));}
+for(const file of ['OPEX-Research-001.pdf','OPEX-Research-001-evaluation.json','OPEX-Research-001-monthly-returns.csv','OPEX-Research-001-manifest.json'])assert.equal((await fetch(origin+'/'+file)).status,404,`Internal package must remain unavailable: ${file}`);
+const company=await(await fetch(origin+'/company/')).text();assert.ok(company.includes('Founded in 2025'),'Correct founding year');assert.ok(homepage.includes('2025–'),'Copyright begins in founding year');
 for(const [route,page] of Object.entries(pages)){
   const response=await fetch(origin+route);
   assert.equal(response.status,200,route);

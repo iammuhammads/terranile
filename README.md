@@ -30,7 +30,7 @@ Archived AVAN, AvanBnB and OPEX homepage captures are retained as local assets b
 
 ## Platform plans
 
-APIs, user accounts, signups and authenticated product experiences are planned. `/api/health/` verifies the server runtime; no account system or database has been implemented. See `ARCHITECTURE.md` before adding account features. Backtesting figures await the owner's data.
+APIs, user accounts, signups and authenticated product experiences are planned. `/api/health/` verifies the server runtime; no account system or database has been implemented. See `ARCHITECTURE.md` before adding account features. OPEX Research 001 is available as a curated public summary at `/research/opex-001/`, with selected verified historical simulated results and three supplied charts.
 
 ## Deployment
 
@@ -39,3 +39,7 @@ Vercel is connected to https://github.com/iammuhammads/terranile. The included `
 Photography and films are illustrative unless labelled as actual product captures. No Terranile-owned facilities, completed developments or validated research results are represented. Asset sources and generated-image prompts are documented in `ASSETS.md`.
 
 The homepage now retains the four linked initiative logos with names below, without the What we build preview model. Newsroom routes are `/news/`, `/perspectives/` and `/announcements/`. Add approved updates in `scripts/news.mjs`; only records marked `published` appear publicly. No unannounced partnerships or releases are fabricated. Real estate is presented through partner-led projects and AVAN infrastructure.
+
+## OPEX Research 001
+
+Public presentation is curated in `scripts/opex-research.mjs`. Headline values were checked against the supplied evaluation JSON, corrected recovery candidate, and the report benchmark table. The report date is preparation metadata, not an asserted publication date. Only three output charts are included in `public/assets/research/`; the package, report, raw data, methodology, configuration, manifests and code are not distributed. No PDF download is provided.

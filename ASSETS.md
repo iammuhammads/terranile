@@ -71,3 +71,7 @@ Run `python scripts/capture-products.py` (Pillow required) to request fresh capt
 
 ## Adaptive favicon
 Transparent black and white Terranile mountain/river marks prepared with the built-in image-generation tool from owner-supplied artwork; resized to 64px PNG. `favicon-light.png` uses black for light browser chrome; `favicon-dark.png` uses white for dark browser chrome. Backgrounds and stray artifacts removed. Editing prompt: preserve supplied mountain/river geometry and negative space; clean flat silhouette on true transparency, no text or shadows.
+
+## OPEX Research 001 public figures
+
+`public/assets/research/risk-return.png`, `growth-drawdown.png` and `rolling-risk.png` are supplied research output charts from OPEX Research 001, version 1.0, prepared 8 October 2026 by OPEX Intelli for Terranile. They depict historical simulated results, not live performance or conceptual imagery. Original Base and Corrected recovery identify the baseline and selected research candidate. No internal report, evaluation JSON, return CSV, manifest or strategy implementation is included.
