@@ -21,5 +21,6 @@ export default async function MarketingRoute({params}:Props){
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeStructuredData(pageStructuredData(route,page))}}/>
     {/* Repository-owned, build-time marketing HTML only. User content must use escaped React props. */}
     <div className="marketing-content" dangerouslySetInnerHTML={{__html:page.body}}/>
+    {route==='/contact/'&&<section className="section contact-build"><span className="eyebrow">Custom software, AI &amp; research</span><h2>Build with Terranile.</h2><p>Websites, apps and software from $10,000. AI and research engagements from $20,000.</p><a className="pill-link" href="/build/">Start a project ↗</a></section>}
   </SiteShell>;
 }

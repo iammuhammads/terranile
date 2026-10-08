@@ -4,7 +4,7 @@ The owner plans to expand Terranile beyond the corporate website into APIs, user
 
 ## Current release
 
-The corporate site now runs on Next.js App Router with TypeScript on Vercel. Marketing pages are pre-rendered. Native routing, React navigation/footer, metadata routes, HTTP redirects, a real 404 and a dynamic `/api/health/` route are implemented. Authentication, user records and product APIs are not yet implemented.
+The corporate site now runs on Next.js App Router with TypeScript on Vercel. Marketing pages are pre-rendered. Native routing, React navigation/footer, metadata routes, HTTP redirects, a real 404 and a dynamic `/api/health/` route are implemented. Client commissioning routes, Supabase email-link authentication, an owner-scoped project-request API and a database migration are implemented. They require the owner’s Supabase configuration before signup or persisted submissions are enabled. The public email-brief flow works without that configuration.
 
 ## Recommended next step
 
@@ -18,12 +18,12 @@ Keep long-running scientific computations, backtesting and background jobs in su
 
 ## Not yet decided
 
-- The first signup use case and required profile fields.
+- The first signup use case is Terranile client commissioning; email-link identity and name are implemented.
 - Whether accounts are Terranile-wide or specific to individual products.
-- Authentication and database providers.
+- Supabase project credentials and production email delivery setup.
 - User roles and organization membership.
 - API consumers, access rules and background-job requirements.
 
-The Next.js foundation is implemented. Account flows, persistent storage and shared-product sign-in remain the next phase.
+See COMMISSIONING-SETUP.md for enabling and verifying client accounts. Shared-product sign-in is not implemented.
 
 References: https://nextjs.org/docs/app/getting-started/route-handlers and https://nextjs.org/docs/app/guides/authentication

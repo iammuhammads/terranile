@@ -16,5 +16,6 @@ export default function RootLayout({children}:{children:ReactNode}){
     <link rel="stylesheet" href="/visuals-v3.css"/>
     <link rel="stylesheet" href="/brand.css"/>
     <link rel="stylesheet" href="/research.css"/>
+    <link rel="stylesheet" href="/build.css"/>
   </head><body>{children}</body></html>;
 }

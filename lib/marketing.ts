@@ -7,3 +7,5 @@ export const siteOrigin='https://terranile.com';
 export function routeFromSegments(segments:string[]=[]){
   return segments.length?'/'+segments.join('/')+'/':'/';
 }
+
+export const nativePublicRoutes=['/build/'];

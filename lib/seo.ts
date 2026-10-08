@@ -13,7 +13,7 @@ export function breadcrumbs(route:string){
   const parent=route.startsWith('/companies/')?'/projects/':
     route.split('/').filter(Boolean).length>1?`/${route.split('/')[1]}/`:null;
   const routes=['/',...(parent&&pages[parent]?[parent]:[]),route];
-  return routes.map(path=>({path,name:path==='/'?'Home':pages[path].title.replace(/ — Terranile$/,'')}));
+  return routes.map(path=>({path,name:path==='/'?'Home':(pages[path]?.title||({'/build/':'Build with Terranile','/account/':'Client account','/account/projects/':'Project requests'} as Record<string,string>)[path]||'Terranile').replace(/ — Terranile$/,'')}));
 }
 export function pageMetadata(route:string,page:MarketingPage):Metadata{
   const article=route==='/research/opex-001/'||route.startsWith('/perspectives/')&&route!=='/perspectives/';

@@ -14,7 +14,7 @@ The Vercel project is `terranile` under `muhammads-projects-c70ef934`. GitHub is
 
 ## Secrets and accounts
 
-The current corporate pages require no service credentials. Keep future secrets in Vercel environment variables, never in public assets or NEXT_PUBLIC variables. Signup and authentication providers are not selected or configured yet. The health endpoint confirms only the web runtime, not a database or product API.
+The corporate and commissioning landing pages work without service credentials. Keep future secrets in Vercel environment variables, never in public assets or NEXT_PUBLIC variables. Supabase email-link client accounts and saved project requests are implemented but disabled without the public Supabase URL and publishable key; see COMMISSIONING-SETUP.md. The health endpoint confirms only the web runtime, not a database or product API.
 
 ## Updating content
 

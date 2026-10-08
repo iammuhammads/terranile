@@ -30,7 +30,7 @@ Archived AVAN, AvanBnB and OPEX homepage captures are retained as local assets b
 
 ## Platform plans
 
-APIs, user accounts, signups and authenticated product experiences are planned. `/api/health/` verifies the server runtime; no account system or database has been implemented. See `ARCHITECTURE.md` before adding account features. OPEX Research 001 is available as a curated public summary at `/research/opex-001/`, with selected verified historical simulated results and three supplied charts.
+`/build/` offers custom software, AI and research engagements. Client account signup and private project requests use Supabase email links and owner-scoped database policies; external configuration is required (COMMISSIONING-SETUP.md). The validated email-brief handoff works immediately without it. `/api/health/` verifies only the web runtime. See `ARCHITECTURE.md` before adding account features. OPEX Research 001 is available as a curated public summary at `/research/opex-001/`, with selected verified historical simulated results and three supplied charts.
 
 ## Deployment
 

@@ -60,7 +60,7 @@ assert.equal(health.headers.get('cache-control'),'no-store');
 assert.equal(health.headers.get('x-robots-tag'),'noindex');
 const sitemap=await fetch(origin+'/sitemap.xml');assert.equal(sitemap.status,200);
 const sitemapUrls=[...(await sitemap.text()).matchAll(/<loc>(.*?)<\/loc>/g)].map(match=>match[1]);
-assert.deepEqual(sitemapUrls.sort(),Object.keys(pages).map(route=>'https://terranile.com'+route).sort(),'Exact sitemap membership');
+assert.deepEqual(sitemapUrls.sort(),[...Object.keys(pages),'/build/'].map(route=>'https://terranile.com'+route).sort(),'Exact sitemap membership');
 const robots=await fetch(origin+'/robots.txt');assert.equal(robots.status,200);
 assert.match(await robots.text(),/Allow: \/[\s\S]*Sitemap: https:\/\/terranile\.com\/sitemap\.xml/);
 const tagged=await(await fetch(origin+'/research/opex-001/?utm_source=check')).text();
