@@ -19,7 +19,24 @@ return `<section class="panel-hero" aria-labelledby="hero-heading" data-panel-de
 <div class="deck-controls"><div class="deck-tabs" aria-label="Choose featured panel">${cards.map((card,i)=>`<button class="deck-tab ${i===0?'is-active':''}" type="button" data-deck-select="${i}" aria-pressed="${i===0?'true':'false'}" aria-controls="hero-${card.id}">${card.tab||card.title}<span class="deck-progress" aria-hidden="true"><span></span></span></button>`).join('')}</div><div class="deck-extra"><button type="button" class="deck-pause" data-deck-pause aria-pressed="false">Pause</button><a class="text-link" href="/projects/">Explore more</a></div></div>
 <span class="sr-only" role="status" aria-live="polite" data-deck-status></span>
 </section>
+<section class="section opportunity-spotlight" aria-labelledby="opportunity-heading">
+  <div class="opportunity-copy">
+    <span class="eyebrow">AVAN / Real estate infrastructure</span>
+    <h2 id="opportunity-heading"><span class="opportunity-figure">₦14B</span><span class="opportunity-headline">in Real Estate<br>Opportunities.</span></h2>
+    <p class="opportunity-intro">A pipeline of <strong>68 identified properties</strong> spanning residential developments and land opportunities in Abuja. Connecting real estate access with verification, documentation and secure transaction infrastructure.</p>
+    <div class="opportunity-facts"><div><strong>68</strong><span>Identified properties</span></div><div><strong>Abuja</strong><span>Initial market focus</span></div></div>
+    <a class="opportunity-link" href="/projects/real-assets/">Explore real estate opportunities <span aria-hidden="true">↗</span></a>
+    <p class="opportunity-disclosure">₦14B represents an approximate aggregate proposed offering value, including anticipated pricing margins. Figures are indicative and subject to final pricing, availability and verification. These are not Terranile-owned assets, completed transactions or an investment offer.</p>
+  </div>
+  <div class="opportunity-gallery" aria-label="Real photography of Nigerian cities and real-estate settings">
+    <figure class="opportunity-photo opportunity-photo-main"><img src="/assets/abuja-fog-16237804.jpg" alt="Real aerial photograph of Abuja, Nigeria, showing the urban landscape through morning fog" width="1800" height="1080" loading="lazy"><figcaption>Abuja, Nigeria / Photography by Stuffedbox NG</figcaption></figure>
+    <div class="opportunity-photo-row">
+      <figure class="opportunity-photo"><img src="https://images.unsplash.com/photo-1643643704183-f7a8ede67efa?auto=format&amp;fit=crop&amp;w=1100&amp;q=80" alt="Real residential buildings along a street in Abuja, Nigeria" width="1100" height="760" loading="lazy" referrerpolicy="no-referrer"><figcaption>Abuja homes / Inatimi Nathus</figcaption></figure>
+      <figure class="opportunity-photo"><img src="/assets/construction-owner.jpg" alt="Construction professionals reviewing building plans at a construction site" width="1408" height="768" loading="lazy"><figcaption>Construction practice / Field photography</figcaption></figure>
+    </div>
+    <p class="opportunity-photo-note">Location and construction photography is illustrative, not documentation of the 68 identified properties.</p>
+  </div>
+</section>
 ${capitalIntro}
-<section class="section people-story"><figure class="reveal"><img src="/assets/construction-owner.jpg" sizes="(max-width:900px) 100vw, 55vw" alt="Two construction professionals reviewing plans at a building site" width="1408" height="768" loading="lazy"><figcaption class="mono">Illustrative partnership imagery / Real estate & real assets</figcaption></figure><div class="reveal"><span class="eyebrow">Real estate & real assets</span><h2>Built in partnership.<br>Connected by infrastructure.</h2><p>Terranile works with developers, landowners and industry partners across real estate and real assets, connecting physical projects with technology, distribution, investment access and transaction infrastructure.</p><a class="text-link" href="/projects/real-assets/">Explore real estate partnerships</a></div></section>
 <section class="section selected-perspectives"><div class="section-head"><div><span class="eyebrow">News / Perspectives / Announcements</span><h2>Ideas and updates.</h2></div><a class="text-link" href="/news/">Explore the newsroom</a></div>${researchFeature(true)}<div class="editorial-list"><a class="editorial-row" href="/perspectives/trust-is-infrastructure/"><span class="mono">Infrastructure</span><h3>Trust is infrastructure.</h3><span>Read perspective</span></a><a class="editorial-row" href="/perspectives/research-beyond-the-application/"><span class="mono">Research</span><h3>Research beyond the application.</h3><span>Read perspective</span></a></div></section>${ecosystem(projects)}`;
 }

@@ -41,7 +41,9 @@ if(home.includes('data-ecosystem-panel')||home.includes('What we build')||home.i
 if((home.match(/class="ecosystem-selector"/g)||[]).length!==4)errors.push('Expected four linked initiative logos');
 if(!contact.includes('abuja-fog-16237804.jpg'))errors.push('Missing real Abuja contact photograph');
 for(const route of ['news','announcements'])if(!fs.readFileSync(`dist/${route}/index.html`,'utf8').includes('newsroom-nav'))errors.push(`Missing newsroom route ${route}`);
-if(!home.includes('Built in partnership.')||!fs.readFileSync('dist/projects/real-assets/index.html','utf8').includes('Developer Partnerships'))errors.push('Missing partnership positioning');
+if(!home.includes('₦14B')||!home.includes('68 identified properties')||!home.includes('opportunity-spotlight'))errors.push('Missing qualified AVAN opportunity spotlight');
+if(!home.includes('not Terranile-owned assets')||!home.includes('abuja-fog-16237804.jpg'))errors.push('Missing opportunity qualification or authentic Abuja imagery');
+if(!fs.readFileSync('dist/projects/real-assets/index.html','utf8').includes('Developer Partnerships'))errors.push('Missing partner-led real-assets detail');
 if(!fs.readFileSync('dist/projects/opex-intelli/index.html','utf8').includes('https://opex-intelli-frontend-iegh.vercel.app/'))errors.push('Missing OPEX platform link');
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}console.log(`Verified ${files.length} pages: local links, assets, metadata, headings, image dimensions, contact email and JavaScript syntax.`);
 

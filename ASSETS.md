@@ -75,3 +75,9 @@ Transparent black and white Terranile mountain/river marks prepared with the bui
 ## OPEX Research 001 public figures
 
 `public/assets/research/risk-return.png`, `growth-drawdown.png` and `rolling-risk.png` are supplied research output charts from OPEX Research 001, version 1.0, prepared 8 October 2026 by OPEX Intelli for Terranile. They depict historical simulated results, not live performance or conceptual imagery. Original Base and Corrected recovery identify the baseline and selected research candidate. No internal report, evaluation JSON, return CSV, manifest or strategy implementation is included.
+
+## Homepage AVAN opportunity spotlight (October 2026)
+
+The homepage uses real photographs alongside the approximate ₦14B opportunity figure. The image of Abuja in fog is `abuja-fog-16237804.jpg` by Stuffedbox NG (Pexels License), already documented above. The residential neighborhood photograph is by Inatimi Nathus, photographed in Abuja, Nigeria and licensed under the Unsplash License: https://unsplash.com/photos/a-row-of-houses-on-a-city-street-SWD5gE2ZXHw . It is displayed from Unsplash's image CDN. The construction-site scene is the previously owner-supplied `construction-owner.jpg`. These images illustrate Nigerian real-estate settings; they are not photographs of the specific properties represented in the opportunity pipeline.
+
+The figure is an indicative aggregate *proposed offering value*, inclusive of anticipated markups, based on approximately 68 identified properties. It is not the company's owned-asset value, completed transaction volume or verified investment performance. Reconfirm pricing, rights to market, and availability before using the figure in a transactional or investment solicitation.
