@@ -47,7 +47,7 @@ if(/68 identified properties|anticipated margins|anticipated pricing margins/i.t
 const opportunities=fs.readFileSync('dist/opportunities/index.html','utf8');
 if(!opportunities.includes('data-property-enquiry')||!opportunities.includes('mailto:info@terranile.com')||!opportunities.includes('Beyond the purchase'))errors.push('Dedicated property enquiry or after-purchase guidance missing');
 if(/68 identified properties|anticipated margins|anticipated pricing margins/i.test(opportunities))errors.push('Opportunity page must not disclose the property count or pricing margins');
-if(!home.includes('not Terranile-owned assets')||!home.includes('abuja-fog-16237804.jpg'))errors.push('Missing opportunity qualification or authentic Abuja imagery');
+if(!home.includes('It does not represent assets owned by Terranile')||!home.includes('abuja-fog-16237804.jpg'))errors.push('Missing opportunity qualification or authentic Abuja imagery');
 if(!fs.readFileSync('dist/projects/real-assets/index.html','utf8').includes('Developer Partnerships'))errors.push('Missing partner-led real-assets detail');
 if(!fs.readFileSync('dist/projects/opex-intelli/index.html','utf8').includes('https://opex-intelli-frontend-iegh.vercel.app/'))errors.push('Missing OPEX platform link');
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}console.log(`Verified ${files.length} pages: local links, assets, metadata, headings, image dimensions, contact email and JavaScript syntax.`);
