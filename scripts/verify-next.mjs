@@ -5,6 +5,12 @@ import http from 'node:http';
 const origin=process.env.TEST_ORIGIN||'http://127.0.0.1:5174';
 const pages=JSON.parse(fs.readFileSync('generated/pages.json','utf8'));
 const homepage=await (await fetch(origin+'/')).text();
+assert.ok(homepage.includes('/opportunities/')&&homepage.includes('₦14B'),'Opportunity conversion links on homepage');
+assert.ok(!/68 identified properties|anticipated margins|anticipated pricing margins/i.test(homepage),'No internal property count or margin language on homepage');
+const opportunitiesResponse=await fetch(origin+'/opportunities/');
+assert.equal(opportunitiesResponse.status,200,'Dedicated property enquiries route');
+const opportunitiesHtml=await opportunitiesResponse.text();
+for(const phrase of ['data-property-enquiry','mailto:info@terranile.com','Beyond the purchase','Development possibilities'])assert.ok(opportunitiesHtml.includes(phrase),'Property enquiries feature: '+phrase);
 assert.ok(!homepage.includes('What we build')&&!homepage.includes('data-ecosystem-panel')&&!homepage.includes('/ecosystem.js'),'Removed product showcase');
 for(const logo of ['avan','avanbnb','helios','opex'])assert.ok(homepage.includes(`/assets/${logo}-logo-clean.png`),`${logo}: retained logo`);
 for(const theme of ['light','dark']){

@@ -21,3 +21,34 @@ function drawScene(canvas,time=0){const rect=canvas.getBoundingClientRect();if(!
 if(canvas.dataset.scene==='helios'){const nodes=Array.from({length:75},(_,i)=>({x:w*(.15+.74*((Math.sin(i*78.233)*43758.5453)%1+1)%1),y:h*(.12+.7*((Math.sin(i*23.11)*12136.51)%1+1)%1)}));nodes.forEach((n,i)=>{n.x+=Math.sin(time*.00013+i)*5;n.y+=Math.cos(time*.0001+i)*5;nodes.slice(i+1).forEach(v=>{const d=Math.hypot(n.x-v.x,n.y-v.y);if(d<Math.min(w*.16,130)){c.strokeStyle=`rgba(158,184,185,${(1-d/130)*.22})`;c.lineWidth=.7;c.beginPath();c.moveTo(n.x,n.y);c.lineTo(v.x,v.y);c.stroke()}});c.fillStyle=i%9===0?'#c5d7d4':'#8fa9a8';c.beginPath();c.arc(n.x,n.y,i%9===0?3.5:1.6,0,Math.PI*2);c.fill();if(i%9===0){c.strokeStyle='#aac6c633';c.beginPath();c.arc(n.x,n.y,12,0,Math.PI*2);c.stroke()}});c.strokeStyle='#b1c1bc40';c.beginPath();c.moveTo(w-55,35);c.lineTo(w-35,35);c.lineTo(w-35,55);c.stroke();c.fillStyle='#93aaa6';c.font='11px monospace';c.fillText('RELATIONSHIP STUDY / CONCEPTUAL',30,h-25)}else{c.strokeStyle='#ffffff10';c.lineWidth=1;for(let x=30;x<w;x+=45){c.beginPath();c.moveTo(x,0);c.lineTo(x,h);c.stroke()}for(let y=35;y<h;y+=45){c.beginPath();c.moveTo(0,y);c.lineTo(w,y);c.stroke()}for(let j=0;j<4;j++){c.beginPath();for(let x=0;x<=w;x+=3){const y=h*.5+Math.sin(x*.012+j+time*.00008)*(25+j*12)+Math.cos(x*.026+j)*15+(j-1.5)*30;x===0?c.moveTo(x,y):c.lineTo(x,y)}c.strokeStyle=['#b9c4c7','#7b898e','#53626a','#dae0dc'][j];c.lineWidth=j===3?1.7:1;c.stroke()}c.fillStyle='#89979c';c.font='11px monospace';c.fillText('SIGNAL STUDY / ILLUSTRATIVE',25,30)}}
 document.querySelectorAll('canvas[data-scene]').forEach(canvas=>{scenes.push({canvas,visible:false});drawScene(canvas)});
 if(scenes.length){const watch=new IntersectionObserver(items=>items.forEach(item=>{const scene=scenes.find(s=>s.canvas===item.target);if(scene)scene.visible=item.isIntersecting}));scenes.forEach(s=>watch.observe(s.canvas));let last=0;function frame(t){if(!reduced.matches&&!document.hidden&&t-last>65){scenes.forEach(s=>{if(s.visible)drawScene(s.canvas,t)});last=t}requestAnimationFrame(frame)}if(!reduced.matches)requestAnimationFrame(frame);window.addEventListener('resize',()=>scenes.forEach(s=>drawScene(s.canvas)));reduced.addEventListener('change',()=>{if(reduced.matches){document.documentElement.classList.remove('js-motion');scenes.forEach(s=>drawScene(s.canvas))}})}
+
+
+// Property opportunity enquiries are prepared locally; the visitor sends the draft from their mail app.
+const propertyEnquiry=document.querySelector('[data-property-enquiry]');
+if(propertyEnquiry){
+  propertyEnquiry.addEventListener('submit',event=>{
+    event.preventDefault();
+    if(!propertyEnquiry.reportValidity())return;
+    const form=new FormData(propertyEnquiry);
+    const field=name=>String(form.get(name)||'').trim().slice(0,1200);
+    const subject='Terranile real estate opportunities enquiry';
+    const body=[
+      'Hello Terranile,',
+      '',
+      'I would like to explore your real estate opportunities.',
+      '',
+      'Name: '+field('fullName'),
+      'Email: '+field('email'),
+      'Property interest: '+field('interest'),
+      'Preferred area: '+(field('area')||'Open to options'),
+      'Approximate budget (NGN): '+(field('budget')||'Not specified'),
+      'Support requested: '+field('support'),
+      'Additional context: '+(field('message')||'None'),
+      '',
+      'Please contact me to discuss suitable opportunities.'
+    ].join('\n');
+    const status=propertyEnquiry.querySelector('[data-property-status]');
+    status.textContent='Your email draft is ready. Review and send it from your email app to complete the enquiry.';
+    window.location.href='mailto:info@terranile.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  });
+}
