@@ -20,7 +20,8 @@ if(!fs.readFileSync('dist/contact/index.html','utf8').includes('mailto:info@terr
 const home=fs.readFileSync('dist/index.html','utf8');
 if((home.match(/data-deck-card/g)||[]).length!==6)errors.push('Expected six separate hero media panels');
 if((home.match(/data-deck-select="/g)||[]).length!==6||!home.includes('data-deck-pause'))errors.push('Missing hero panel controls');
-if(!home.includes('data-deck-video')||!home.includes('Happy birthday, Nigeria.'))errors.push('Missing Nigeria video panel');
+if(!home.includes('id="hero-opportunities"')||!home.includes('class="deck-opportunity-number">₦14B')||!home.includes('₦14B opportunities'))errors.push('Missing featured ₦14B rotating hero panel');
+if(home.includes('Happy birthday, Nigeria.')||home.includes('October 1 · Celebrating'))errors.push('Outdated Independence Day hero copy should be retired');
 if(!home.includes('avanbnb-logo-clean.png'))errors.push('Missing supplied AvanBnB logo');
 if(!home.includes('data-city-film')||!home.includes('/nigerian-roots/'))errors.push('Missing capital city film or Nigerian roots link');
 if(!fs.existsSync(path.join(root,'nigerian-roots/index.html')))errors.push('Missing Nigerian roots page');
