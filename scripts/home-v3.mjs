@@ -25,7 +25,7 @@ return `<section class="panel-hero" aria-labelledby="hero-heading" data-panel-de
     <h2 id="opportunity-heading"><a href="/opportunities/" aria-label="Explore ₦14 billion in real estate opportunities"><span class="opportunity-figure">₦14B</span><span class="opportunity-headline">in Real Estate<br>Opportunities.</span></a></h2>
     <p class="opportunity-intro">Explore selected residential, land and development opportunities in Nigeria. Connect with our team to discuss what is available, the purchase process and possibilities beyond acquisition.</p>
     <p class="opportunity-journey">From property discovery to what comes next.</p>
-    <a class="opportunity-link" href="/opportunities/">Explore opportunities &amp; contact us <span aria-hidden="true">↗</span></a>
+    <a class="opportunity-link" href="/opportunities/">Explore opportunities &amp; contact us <img class="avan-icon avan-icon--arrow" src="/assets/icons/avan-forward.svg" alt="" width="24" height="24" aria-hidden="true"></a>
     <p class="opportunity-disclosure">₦14B is an indicative aggregate offering value, subject to pricing, availability and verification. It does not represent assets owned by Terranile or completed transactions.</p>
   </div>
   <div class="opportunity-gallery" aria-label="Real photography of Nigerian cities and real-estate settings">

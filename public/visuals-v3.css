@@ -86,3 +86,17 @@
 @media(max-width:900px){.opportunity-enquiry-layout{grid-template-columns:1fr;gap:38px;padding-top:55px}.opportunity-page-story h2{font-size:clamp(50px,7vw,76px)}.opportunity-page-photo img{height:380px}.opportunity-aftercare-grid{gap:20px}}
 @media(max-width:640px){.opportunity-enquiry-layout{padding-top:40px;padding-bottom:60px}.opportunity-page-story h2{font-size:clamp(45px,11vw,67px)}.opportunity-page-story>p{font-size:15px}.opportunity-page-photo img{height:285px}.opportunity-enquiry-card{padding:23px 18px}.opportunity-field-row{grid-template-columns:1fr;gap:17px}.opportunity-aftercare{padding-top:60px;padding-bottom:68px}.opportunity-aftercare-grid{grid-template-columns:1fr;gap:24px;margin:36px 0 25px}.opportunity-aftercare-grid article{padding-top:20px}.opportunity-aftercare-header p{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.opportunity-submit{transition:none}}
+
+/* TerraNile / AVAN proprietary architectural icon language.
+   Precise technical-line symbols: no emoji, gradients, or library glyphs. */
+.avan-icon{display:block;flex-shrink:0;width:48px;height:48px;object-fit:contain}
+.avan-icon--arrow{width:20px;height:20px;transition:transform .2s ease}
+.opportunity-link:hover .avan-icon--arrow,.opportunity-submit:hover .avan-icon--arrow{transform:translate(2px,-2px)}
+.opportunity-submit .avan-icon--arrow{filter:brightness(0) invert(1)}
+.opportunity-link .avan-icon--arrow{display:inline-block;vertical-align:middle}
+.opportunity-page-kicker{display:flex;align-items:center;gap:17px}
+.opportunity-page-kicker .avan-icon--property{width:40px;height:40px}
+.avan-pictogram{display:flex;align-items:center;justify-content:center;width:72px;height:72px;margin-bottom:22px;border:1px solid #b8bdc0;border-radius:8px;background:#f1f2f2}
+.avan-pictogram .avan-icon{width:45px;height:45px}
+@media(max-width:640px){.avan-pictogram{width:62px;height:62px;margin-bottom:20px}.avan-pictogram .avan-icon{width:40px;height:40px}.opportunity-page-kicker{gap:10px}.opportunity-page-kicker .avan-icon--property{width:34px;height:34px}}
+@media(prefers-reduced-motion:reduce){.avan-icon--arrow{transition:none}}
